@@ -10,9 +10,7 @@ import { handleError } from "../utils";
 export async function createUser(user: CreateUserParams) {
   try {
     await connectToDatabase();
-
     const newUser = await User.create(user);
-
     return JSON.parse(JSON.stringify(newUser));
   } catch (error) {
     handleError(error);
@@ -26,7 +24,7 @@ export async function getUserById(userId: string) {
 
     const user = await User.findOne({ clerkId: userId });
 
-    if (!user) throw new Error("User not found");
+    if (!user) throw new Error("User with this id does not exist");
 
     return JSON.parse(JSON.stringify(user));
   } catch (error) {
@@ -60,7 +58,7 @@ export async function deleteUser(clerkId: string) {
     const userToDelete = await User.findOne({ clerkId });
 
     if (!userToDelete) {
-      throw new Error("User not found");
+      throw new Error("User to delete does not exist");
     }
 
     // Delete user
