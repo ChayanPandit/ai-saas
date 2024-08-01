@@ -16,12 +16,12 @@ const AddTransformationTypePage = async({params: {type}}: SearchParamProps) => {
   const user = await getUserById(userId);
 
   return (
-    <div>
+    <div className='w-full'>
       <Header 
         title={transformation.title}
         subtitle={transformation.subTitle}
       />
-      <section className='mt-10'>
+      <section className='mt-10 w-full'>
         <TransformationForm 
           action='Add'
           userId={user._id}

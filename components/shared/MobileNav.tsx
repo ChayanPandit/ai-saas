@@ -45,16 +45,16 @@ const MobileNav = () => {
                   height={23}
                 /> */}
 
-              <ul className="header-nav_elements">
+              <ul className="mt-8 flex w-full flex-col items-start gap-5">
               {navLinks.map((link) => {
                 const isActive = link.route === pathname
 
                 return (
                   <li 
-                    className={`${isActive && 'gradient-text'} p-18 flex whitespace-nowrap text-dark-700`}
+                    className={`${isActive ? 'bg-slate-500 text-white text-white' : 'text-gray-700'} flex-center font-semibold w-full rounded-xl hover:bg-slate-400 hover:text-slate-50 hover:shadow-inner`}
                     key={link.route}
                     >
-                    <Link className="sidebar-link cursor-pointer" href={link.route}>
+                    <Link className="font-semibold flex size-full gap-4 p-4 cursor-pointer" href={link.route}>
                       <Image 
                         src={link.icon}
                         alt="logo"
@@ -73,7 +73,7 @@ const MobileNav = () => {
         </SignedIn>
 
         <SignedOut>
-            <Button asChild className="button bg-purple-gradient bg-cover">
+            <Button asChild className="button">
               <Link href="/sign-in">Login</Link>
             </Button>
           </SignedOut>

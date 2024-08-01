@@ -13,15 +13,15 @@ const Home = async ({ searchParams }: SearchParamProps) => {
   return (
     <>
       <section className="home bg-slate-500">
-        <h1 className="home-heading w-full">
-        Revitalize Your Imagination with Re:Image
+        <h1 className="font-bold home-heading w-full py-8">
+          Revitalize Your Imagination
         </h1>
         <ul className="flex-center w-full gap-20">
           {navLinks.slice(1, 5).map((link) => (
             <Link
               key={link.route}
               href={link.route}
-              className="flex-center flex-col gap-2"
+              className="flex-center flex-col gap-2 hover:bg-slate-600 rounded-xl p-4"
             >
               <li className="flex-center w-fit rounded-full bg-white p-4">
                 <Image src={link.icon} alt="image" width={24} height={24} />
@@ -32,7 +32,7 @@ const Home = async ({ searchParams }: SearchParamProps) => {
         </ul>
       </section>
 
-      <section className="sm:mt-12">
+      <section className="h-full my-4">
         <Collection 
           hasSearch={true}
           images={images?.data}

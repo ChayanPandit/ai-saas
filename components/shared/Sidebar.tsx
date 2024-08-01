@@ -11,23 +11,19 @@ const Sidebar = () => {
   const pathname = usePathname();
 
   return (
-    <aside className="sidebar">
+    <aside className="hidden h-screen w-72 bg-white p-5 shadow-md shadow-purple-200/50 lg:flex">
       <div className="flex size-full flex-col gap-4">
-        {/* <Link href="/" className="sidebar-logo">
-          <Image src="/assets/images/logo.png" alt="logo" width={180} height={28} />
-        </Link> */}
-
-        <nav className="sidebar-nav">
+        <nav className="h-full flex-col justify-between md:flex md:gap-4">
           <SignedIn> 
-            <ul className="sidebar-nav_elements">
+            <ul className="hidden w-full flex-col items-start gap-2 md:flex">
               {navLinks.slice(0, 6).map((link) => {
                 const isActive = link.route === pathname
 
                 return (
-                  <li key={link.route} className={`sidebar-nav_element group ${
-                    isActive ? 'bg-purple-gradient text-white' : 'text-gray-700'
+                  <li key={link.route} className={`flex-center font-semibold w-full rounded-xl hover:bg-slate-400 hover:text-slate-50 hover:shadow-inner group ${
+                    isActive ? 'bg-slate-500 text-white shadow-inner' : 'text-gray-700'
                   }`}>
-                    <Link className="sidebar-link" href={link.route}>
+                    <Link className="font-semibold flex size-full gap-4 p-4" href={link.route}>
                       <Image 
                         src={link.icon}
                         alt="logo"
@@ -41,15 +37,15 @@ const Sidebar = () => {
                 )
               })}
               </ul>
-            <ul className="sidebar-nav_elements">
+            <ul className="hidden w-full flex-col items-start gap-2 md:flex">
               {navLinks.slice(6).map((link) => {
                 const isActive = link.route === pathname
 
                 return (
-                  <li key={link.route} className={`sidebar-nav_element group ${
-                    isActive ? 'bg-purple-gradient text-white' : 'text-gray-700'
+                  <li key={link.route} className={`flex-center font-semibold w-full rounded-xl hover:bg-slate-400 hover:text-slate-50 hover:shadow-inner ${
+                    isActive ? 'bg-slate-500 text-white text-white' : 'text-gray-700'
                   }`}>
-                    <Link className="sidebar-link" href={link.route}>
+                    <Link className="font-semibold flex size-full gap-4 p-4" href={link.route}>
                       <Image 
                         src={link.icon}
                         alt="logo"
@@ -63,14 +59,14 @@ const Sidebar = () => {
                 )
               })}
 
-              <li className="flex-center cursor-pointer gap-2 p-4">
+              <li className="flex justify-center items-center cursor-pointer gap-2 p-4">
                 <UserButton showName />
               </li>
             </ul>
           </SignedIn>
 
           <SignedOut>
-            <Button asChild className="button bg-purple-gradient bg-cover">
+            <Button asChild className="button">
               <Link href="/sign-in">Login</Link>
             </Button>
           </SignedOut>

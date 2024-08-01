@@ -16,18 +16,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider appearance={{
-      variables: {colorPrimary: '#624cf5'}
-    }}>
+    <ClerkProvider>
       <html lang="en">
         <body className={inter.className}>
-        {/* <SignedOut>
-          <SignInButton />
-        </SignedOut>
-        <SignedIn>
-          <UserButton />
-        </SignedIn> */}
-
           {children}
         </body>
       </html>

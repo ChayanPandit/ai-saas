@@ -69,7 +69,7 @@ const MediaUploader = ({
 
           {publicId ? (
             <>
-              <div className="cursor-pointer overflow-hidden rounded-[10px]">
+              <div className="cursor-pointer overflow-hidden rounded-xl">
                 <CldImage 
                   width={getImageSize(type, image, "width")}
                   height={getImageSize(type, image, "height")}
@@ -85,6 +85,7 @@ const MediaUploader = ({
             <div className="media-uploader_cta" onClick={() => open()}>
               <div className="media-uploader_cta-image">
                 <Image 
+                  className="text-slate-500"
                   src="/assets/icons/add.svg"
                   alt="Add Image"
                   width={24}

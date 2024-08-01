@@ -5,16 +5,15 @@ import React from 'react'
 
 const Layout = ({children}:{children: React.ReactNode}) => {
   return (
-    <main className='root'>
+    <main className='root bg-slate-200 relative'>
       <Sidebar/>
       <MobileNav/>
-        <div className='root-container'>
-            <div className='wrapper'>
+        <div className='mt-8 overflow-auto max-h-screen h-full w-full px-8'>
+            <div className='max-w-5xl mx-auto px-5 w-full h-full'>
                 {children}
             </div>
         </div>
-
-        <Toaster/>
+      <Toaster/>
     </main>
   )
 }
